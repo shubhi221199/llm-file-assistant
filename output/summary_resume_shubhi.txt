@@ -1,0 +1,4 @@
+Summary of Shubhi Sharma's Resume:
+
+Skills: Python, React, SQL
+Experience: 3 years as Software Engineer

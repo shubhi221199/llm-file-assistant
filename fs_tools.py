@@ -9,6 +9,13 @@ def read_file(filepath: str) -> dict:
     try:
         path = Path(filepath)
 
+        # If the file path doesn't exist, check the resumes folder
+        if not path.exists() and not path.is_absolute():
+            resume_path = Path("data/resumes") / path.name
+
+            if resume_path.exists():
+                path = resume_path
+
         if not path.exists():
             return {
                 "success": False,
@@ -63,7 +70,6 @@ def read_file(filepath: str) -> dict:
             "success": False,
             "error": str(e)
         }
-        
         
 def list_files(directory: str, extension: str = None) -> list:
     try:
